@@ -13,7 +13,8 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        echo 'bad code';;
+        echo 'bad code';;;;;
+
         var_dump($request);
 
         // replace this example code with whatever you need

@@ -15,6 +15,13 @@ parameters:
   ascii:
     failed: grumphp-grumpy.txt
     succeeded: grumphp-happy.txt
-  tasks: {}
+  tasks:
+    tasks:
+      phpcsfixer:
+        config_file: ~
+        config: ~
+        fixers: []
+        level: psr2
+        verbose: true
   testsuites: []
   extensions: []
