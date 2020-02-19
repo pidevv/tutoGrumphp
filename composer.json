@@ -14,7 +14,7 @@
         "files": [ "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=7.3",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "incenteev/composer-parameter-handler": "^2.0",
@@ -29,6 +29,7 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
         "phpro/grumphp": "^0.17.2",
+        "phpstan/phpstan": "^0.12.11",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0"
     },

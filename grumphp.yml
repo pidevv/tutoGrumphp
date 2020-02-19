@@ -3,6 +3,7 @@ parameters:
   git_hook_variables:
     VAGRANT_HOST_DIR: .
     VAGRANT_PROJECT_DIR: /usr/var/app
+    EXEC_GRUMPHP_COMMAND: docker-compose -f docker-compose.yaml run php-fpm-tuto-sf2
   git_dir: .
   bin_dir: /usr/var/app/vendor/bin
   stop_on_failure: false
@@ -17,8 +18,13 @@ parameters:
   tasks:
     phpcsfixer2:
       triggered_by: ['php']
-      config: .php_cs
+      config: /usr/var/app/devops/grumphp/phpcsfixer/.php_cs
       allow_risky: true
       verbose: true
+    phpstan:
+      autoload_file: ~
+      configuration: /usr/var/app/devops/grumphp/phpstan/phpstan.neon
+      level: 7
+      triggered_by: ['php']
   testsuites: []
   extensions: []

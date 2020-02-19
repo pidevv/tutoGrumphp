@@ -1,0 +1,15 @@
+includes:
+  - %rootDir%/conf/bleedingEdge.neon
+
+parameters:
+  level: 8
+  excludes_analyse:
+    - %rootDir%/../../../src/Kernel.php
+    - %rootDir%/../../../app/AppKernel.php
+    - %rootDir%/../../../tests
+    - %rootDir%/../../../web
+    - %rootDir%/../../../var
+  ignoreErrors:
+  reportUnmatchedIgnoredErrors: false
+  checkMissingIterableValueType: false
+  checkGenericClassInNonGenericObjectType: false
