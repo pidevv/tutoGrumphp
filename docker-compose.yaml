@@ -4,14 +4,24 @@ services:
   php-fpm-tuto-sf2:
     container_name: 'tuto-sf2'
     build:
-      context: '.'
+      context: devops/docker/php
     command: "sh -c 'composer install && bin/console server:run 0.0.0.0:8881'"
     working_dir: '/usr/var/app'
     volumes:
       - "./:/usr/var/app"
-      - "./devops/docker/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
-      - "./devops/docker/php.ini:/usr/local/etc/php/php.ini"
+      - "./devops/docker/php/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+      - "./devops/docker/php/php.ini:/usr/local/etc/php/php.ini"
     ports:
       - "8881:8881"
       - "4433:443"
     restart: 'on-failure'
+
+  webserver-pidev:
+    image: httpd:2.4-alpine
+    working_dir: /usr/var/www/
+    volumes:
+      - ./:/usr/var/www/
+      - ./devops/docker/apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./devops/docker/apache/pierredv.conf:/usr/local/apache2/conf/vhosts/pierredv.conf
+    ports:
+      - "8882:80"
