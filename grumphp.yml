@@ -26,5 +26,14 @@ parameters:
       configuration: /usr/var/app/devops/grumphp/phpstan/phpstan.neon
       level: 7
       triggered_by: ['php']
+    psalm:
+      config: /usr/var/app/devops/grumphp/psalm/psalm.xml
+      ignore_patterns: []
+      no_cache: false
+      report: ~
+      output_format: null
+      threads: 1
+      triggered_by: ['php']
+      show_info: false
   testsuites: []
   extensions: []
